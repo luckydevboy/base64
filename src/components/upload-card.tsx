@@ -59,7 +59,7 @@ const UploadCard = ({ file }: Props) => {
         </AvatarFallback>
       </Avatar>
       <div className="flex-grow">
-        <code className="text-sm">{file.name}</code>
+        <code className="text-sm line-clamp-1">{file.name}</code>
         <div className="flex justify-between">
           <small className="mb-1 block">
             Size: <code>{formatBytes(file.size)}</code>
@@ -71,7 +71,7 @@ const UploadCard = ({ file }: Props) => {
       {status === "completed" && (
         <ResultDialog
           trigger={
-            <Button variant="outline" size="icon">
+            <Button className="flex-shrink-0" variant="outline" size="icon">
               <Code className="h-4 w-4" />
             </Button>
           }
