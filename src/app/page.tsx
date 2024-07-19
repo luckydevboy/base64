@@ -32,11 +32,13 @@ export default function Home() {
               );
             }}
           />
-          <div className="space-y-3 mt-6">
-            {files.map((file, index) => (
-              <UploadCard file={file} />
-            ))}
-          </div>
+          {files.length > 0 && (
+            <div className="space-y-3 mt-6">
+              {files.map((file, index) => (
+                <UploadCard file={file} key={`upload-${index}`} />
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
