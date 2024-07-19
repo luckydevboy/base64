@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dialog,
   DialogContent,
@@ -76,7 +78,7 @@ const ResultDialog = ({ trigger }: Props) => {
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
-      <DialogTrigger>{trigger}</DialogTrigger>
+      <DialogTrigger asChild>{trigger}</DialogTrigger>
     </Dialog>
   );
 };

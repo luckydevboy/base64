@@ -1,8 +1,30 @@
-import { CloudUpload } from "lucide-react";
+"use client";
 
-const UploadZone = () => {
+import { CloudUpload } from "lucide-react";
+import { useDropzone } from "react-dropzone";
+import { useCallback } from "react";
+
+type Props = {
+  onChange: (files: File[]) => void;
+};
+
+const UploadZone = ({ onChange }: Props) => {
+  const onDrop = useCallback((acceptedFiles) => {
+    onChange(acceptedFiles);
+  }, []);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      "image/png": [".png", ".jpg", ".jpeg"],
+    },
+  });
+
   return (
-    <div className="flex flex-col gap-y-4 items-center justify-center h-36 rounded-lg bg-muted/40 border border-dashed border-black/40 dark:border-white/40">
+    <div
+      {...getRootProps()}
+      className="cursor-pointer flex flex-col gap-y-4 items-center justify-center h-36 rounded-lg bg-muted/40 border border-dashed border-black/40 dark:border-white/40"
+    >
+      <input {...getInputProps()} />
       <CloudUpload className="h-6 w-6" />
       <div>Click to upload or drag and drop</div>
     </div>

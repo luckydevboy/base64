@@ -8,8 +8,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { UploadCard, UploadZone } from "@/components";
+import { useState } from "react";
 
 export default function Home() {
+  const [files, setFiles] = useState<(File & { preview: string })[]>([]);
+
   return (
     <div className="container">
       <Card className="max-w-[500px] mx-auto my-8">
@@ -20,18 +23,18 @@ export default function Home() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <UploadZone />
-          <h1 className="mt-6 mb-3">2 files uploading...</h1>
-          <div className="space-y-3">
-            {[
-              { status: "uploading", progress: 43 },
-              { status: "completed" },
-            ].map((item, index) => (
-              <UploadCard
-                key={index}
-                status={item.status}
-                progress={item.progress}
-              />
+          <UploadZone
+            onChange={(files) => {
+              setFiles(
+                files.map((file) =>
+                  Object.assign(file, { preview: URL.createObjectURL(file) }),
+                ),
+              );
+            }}
+          />
+          <div className="space-y-3 mt-6">
+            {files.map((file, index) => (
+              <UploadCard file={file} />
             ))}
           </div>
         </CardContent>
