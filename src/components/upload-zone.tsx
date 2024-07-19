@@ -15,7 +15,7 @@ const UploadZone = ({ onChange }: Props) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      "image/png": [".png", ".jpg", ".jpeg"],
+      "image/*": [".png", ".jpg", ".jpeg"],
     },
   });
 

@@ -5,32 +5,26 @@ import { Button } from "@/components/ui/button";
 import { Code } from "lucide-react";
 import { ResultDialog } from "@/components";
 import { useEffect, useState } from "react";
+import { formatBytes } from "@/lib/utils";
 
 type Props = {
   file: File & { preview: string };
 };
 
-const formatBytes = (bytes) => {
-  if (bytes < 1024) {
-    return `${bytes} B`;
-  } else if (bytes < 1024 ** 2) {
-    return `${(bytes / 1024).toFixed(2)} KB`;
-  } else if (bytes < 1024 ** 3) {
-    return `${(bytes / 1024 ** 2).toFixed(2)} MB`;
-  } else {
-    return `${(bytes / 1024 ** 3).toFixed(2)} GB`;
-  }
-};
-
 const UploadCard = ({ file }: Props) => {
   const [status, setStatus] = useState<"completed" | "uploading">("uploading");
-  const [progress, setProgress] = useState<Progress>();
+  const [progress, setProgress] = useState(0);
+  const [base64, setBase64] = useState("");
 
   useEffect(() => {
     const reader = new FileReader();
 
     reader.onloadstart = () => {
       setProgress(0);
+    };
+
+    reader.onload = (event) => {
+      setBase64(String(event.target.result).replace(/\s+/g, ""));
     };
 
     reader.onprogress = (event) => {
@@ -45,7 +39,7 @@ const UploadCard = ({ file }: Props) => {
       setStatus("completed");
     };
 
-    reader.readAsArrayBuffer(file);
+    reader.readAsDataURL(file);
   }, [file]);
 
   return (
@@ -72,7 +66,7 @@ const UploadCard = ({ file }: Props) => {
           </small>
           {status === "uploading" && <small>30%</small>}
         </div>
-        {status === "uploading" && <Progress id="progress" value={30} />}
+        {status === "uploading" && <Progress id="progress" value={progress} />}
       </div>
       {status === "completed" && (
         <ResultDialog
@@ -81,6 +75,8 @@ const UploadCard = ({ file }: Props) => {
               <Code className="h-4 w-4" />
             </Button>
           }
+          base64={base64}
+          file={file}
         />
       )}
     </Card>
