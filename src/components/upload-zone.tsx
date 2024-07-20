@@ -22,7 +22,7 @@ const UploadZone = ({ onChange }: Props) => {
   return (
     <div
       {...getRootProps()}
-      className="cursor-pointer flex flex-col gap-y-4 items-center justify-center h-36 rounded-lg bg-muted/40 border border-dashed border-black/40 dark:border-white/40"
+      className="px-4 text-center cursor-pointer flex flex-col gap-y-4 items-center justify-center h-36 rounded-lg bg-muted/40 border border-dashed border-black/40 dark:border-white/40"
     >
       <input {...getInputProps()} />
       <CloudUpload className="h-6 w-6" />

@@ -79,22 +79,6 @@ const Tutorial = () => {
           data in systems that work better with text.
         </li>
       </ul>
-
-      <h2 className="text-2xl font-semibold mb-2">How to Use Our Converter</h2>
-      <ol className="list-decimal list-inside mb-4">
-        <li>
-          <strong>Upload Your Image:</strong> Select the image file you want to
-          convert.
-        </li>
-        <li>
-          <strong>Convert:</strong> Click the &apos;Convert&apos; button to
-          generate the Base64 string.
-        </li>
-        <li>
-          <strong>Use:</strong> Copy the generated string and use it in your
-          HTML, CSS, or other applications as needed.
-        </li>
-      </ol>
     </div>
   );
 };
