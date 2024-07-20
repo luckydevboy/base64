@@ -4,6 +4,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/providers";
 import { Toaster } from "@/components/ui/sonner";
+import { Layout } from "@/components";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -26,9 +27,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
-          <Toaster />
+          <Layout>{children}</Layout>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

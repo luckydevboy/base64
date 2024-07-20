@@ -1,3 +1,5 @@
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
@@ -24,7 +26,9 @@ const UploadCard = ({ file }: Props) => {
     };
 
     reader.onload = (event) => {
-      setBase64(String(event.target.result).replace(/\s+/g, ""));
+      if (event.target) {
+        setBase64(String(event.target.result).replace(/\s+/g, ""));
+      }
     };
 
     reader.onprogress = (event) => {

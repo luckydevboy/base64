@@ -9,7 +9,7 @@ type Props = {
 };
 
 const UploadZone = ({ onChange }: Props) => {
-  const onDrop = useCallback((acceptedFiles) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
     onChange(acceptedFiles);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({

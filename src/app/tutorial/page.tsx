@@ -1,0 +1,102 @@
+const Tutorial = () => {
+  return (
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-4">What is Base64?</h1>
+      <p className="mb-4">
+        Base64 is a binary-to-text encoding scheme that converts binary data
+        (like images or files) into an ASCII string format. This encoded string
+        uses a set of 64 different ASCII characters to represent the data.
+      </p>
+
+      <h2 className="text-2xl font-semibold mb-2">Why Base64?</h2>
+      <p className="mb-4">
+        Base64 encoding is used in various applications, particularly when you
+        need to include binary data in environments that handle text. Here are
+        some common reasons for using Base64 encoding:
+      </p>
+      <ul className="list-disc list-inside mb-4">
+        <li>
+          <strong>Embedding Data in Web Pages:</strong> Base64 is often used to
+          embed image data directly into HTML or CSS files. This can reduce the
+          number of HTTP requests made by the browser, which can improve the
+          load time of a web page.
+        </li>
+        <li>
+          <strong>Data Integrity:</strong> When transmitting binary data over
+          text-based protocols (like JSON, XML, or email), Base64 ensures that
+          the data remains intact without modification during transport. It
+          avoids issues that can arise from character encoding mismatches.
+        </li>
+        <li>
+          <strong>Simplified Handling:</strong> Base64 encoding can simplify
+          data handling in systems that are designed to process text data but
+          not binary data. For instance, some web services and APIs require
+          Base64 encoding for file uploads or data exchanges.
+        </li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mb-2">How Does Base64 Work?</h2>
+      <p className="mb-4">
+        Base64 encoding works by dividing the input data into chunks of 24 bits
+        (3 bytes). Each 24-bit chunk is split into four 6-bit groups. Each 6-bit
+        group is then mapped to a character in the Base64 alphabet. This results
+        in an encoded string that is approximately 33% larger than the original
+        binary data.
+      </p>
+
+      <h2 className="text-2xl font-semibold mb-2">Example</h2>
+      <p className="mb-4">
+        Suppose you have an image file you want to include directly in your web
+        page. Instead of creating a separate HTTP request to fetch the image,
+        you can convert the image to a Base64 string and embed it directly in
+        your HTML:
+      </p>
+      <pre className="bg-gray-800 text-white p-4 rounded mb-4 overflow-hidden">
+        <code>
+          &lt;img
+          src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...&quot;&gt;
+        </code>
+      </pre>
+
+      <h2 className="text-2xl font-semibold mb-2">
+        Why Use Our Base64 Converter?
+      </h2>
+      <p className="mb-4">
+        Our Base64 converter tool simplifies the process of converting images
+        and other files into Base64 format. Here’s why you might need it:
+      </p>
+      <ul className="list-disc list-inside mb-4">
+        <li>
+          <strong>Ease of Use:</strong> Quickly convert images or files to
+          Base64 without needing to write code.
+        </li>
+        <li>
+          <strong>Integration:</strong> Easily embed Base64 encoded data into
+          web pages, emails, or other text-based formats.
+        </li>
+        <li>
+          <strong>Data Handling:</strong> Facilitate the inclusion of binary
+          data in systems that work better with text.
+        </li>
+      </ul>
+
+      <h2 className="text-2xl font-semibold mb-2">How to Use Our Converter</h2>
+      <ol className="list-decimal list-inside mb-4">
+        <li>
+          <strong>Upload Your Image:</strong> Select the image file you want to
+          convert.
+        </li>
+        <li>
+          <strong>Convert:</strong> Click the &apos;Convert&apos; button to
+          generate the Base64 string.
+        </li>
+        <li>
+          <strong>Use:</strong> Copy the generated string and use it in your
+          HTML, CSS, or other applications as needed.
+        </li>
+      </ol>
+    </div>
+  );
+};
+
+export default Tutorial;

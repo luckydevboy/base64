@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const formatBytes = (bytes) => {
+export const formatBytes = (bytes: number) => {
   if (bytes < 1024) {
     return `${bytes} B`;
   } else if (bytes < 1024 ** 2) {
