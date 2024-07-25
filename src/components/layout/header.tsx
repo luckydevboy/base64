@@ -21,16 +21,18 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="left">
               <SheetHeader>
-                <SheetTitle className="text-left">Base64</SheetTitle>
+                <SheetTitle className="text-left text-3xl font-black mb-8">
+                  Base64
+                </SheetTitle>
                 <SheetDescription className="text-left">
-                  <ul className="space-y-2">
+                  <ul className="space-y-4">
                     <li>
-                      <Link href="/" className="">
+                      <Link href="/" className="text-xl font-bold">
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link href="/tutorial" className="">
+                      <Link href="/tutorial" className="text-xl font-bold">
                         Tutorial
                       </Link>
                     </li>
