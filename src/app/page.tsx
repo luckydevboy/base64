@@ -33,7 +33,7 @@ export default function Home() {
             }}
           />
           {files.length > 0 && (
-            <div className="space-y-3 mt-6">
+            <div className="space-y-3 mt-6 max-h-[calc(100vh-2rem-56px-90px-144px-82px)] overflow-y-auto">
               {files.map((file, index) => (
                 <UploadCard file={file} key={`upload-${index}`} />
               ))}
