@@ -39,7 +39,7 @@ const ResultDialog = ({ trigger, base64, file }: Props) => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle></DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-left">
             <div>
               <span className="font-bold">Filename:</span>{" "}
               <code>{file.name}</code>
