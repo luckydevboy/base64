@@ -53,10 +53,10 @@ const ResultDialog = ({ trigger, base64, file }: Props) => {
               <div className="mb-2">
                 For use in <code>img</code> element
               </div>
-              <div className="absolute inset-x-4 overflow-auto h-14 dark:bg-muted/40 bg-muted/80 p-4 rounded-lg">
+              <div className="absolute inset-x-4 overflow-hidden whitespace-nowrap dark:bg-muted/40 bg-muted/80 p-4 rounded-lg">
                 <code className="block">{base64}</code>
                 <Button
-                  className="absolute right-4 top-1/2 -translate-y-1/2"
+                  className="absolute right-1 top-1/2 -translate-y-1/2"
                   variant="outline"
                   size="icon"
                   onClick={handleClick}

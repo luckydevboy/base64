@@ -68,7 +68,7 @@ const UploadCard = ({ file }: Props) => {
           <small className="mb-1 block">
             Size: <code>{formatBytes(file.size)}</code>
           </small>
-          {status === "uploading" && <small>30%</small>}
+          {status === "uploading" && <small>{progress}%</small>}
         </div>
         {status === "uploading" && <Progress id="progress" value={progress} />}
       </div>
